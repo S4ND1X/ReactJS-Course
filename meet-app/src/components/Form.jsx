@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
+const { v4: uuidv4 } = require("uuid");
 
-const Form = () => {
+const Form = ({ createMeeting }) => {
   const [meeting, setMeeting] = useState({
     pet: "",
     owner: "",
@@ -33,12 +34,15 @@ const Form = () => {
     ) {
       setError(true);
       return;
-    } else {
-      setError(false);
     }
-    // ID
+    setError(false);
 
+    // ID
+    meeting.id = uuidv4();
     // create meeting
+    createMeeting(meeting);
+
+    setMeeting({ pet: "", owner: "", date: "", time: "", message: "" });
   };
 
   return (
