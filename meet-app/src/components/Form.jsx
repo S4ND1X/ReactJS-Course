@@ -1,6 +1,23 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 
 const Form = () => {
+  const [meeting, setMeeting] = useState({
+    pet: "",
+    owner: "",
+    date: "",
+    time: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setMeeting({
+      ...meeting,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const { pet, owner, date, time, message } = meeting;
+
   return (
     <Fragment>
       <h2>Meeting</h2>
@@ -12,6 +29,8 @@ const Form = () => {
           name="pet"
           className="u-full-width"
           placeholder="Pet's Name"
+          onChange={handleChange}
+          value={pet}
         />
         <label>Owner</label>
         <input
@@ -19,13 +38,32 @@ const Form = () => {
           name="owner"
           className="u-full-width"
           placeholder="Owner name"
+          onChange={handleChange}
+          value={owner}
         />
         <label>Date</label>
-        <input type="date" name="date" className="u-full-width" />
+        <input
+          type="date"
+          name="date"
+          className="u-full-width"
+          onChange={handleChange}
+          value={date}
+        />
         <label>Time</label>
-        <input type="time" name="time" className="u-full-width" />
+        <input
+          type="time"
+          name="time"
+          className="u-full-width"
+          onChange={handleChange}
+          value={time}
+        />
         <label>Message</label>
-        <textarea name="message" className="u-full-width"></textarea>
+        <textarea
+          name="message"
+          className="u-full-width"
+          onChange={handleChange}
+          value={message}
+        ></textarea>
 
         <button type="submit" className="u-full-width button-primary">
           Send message
