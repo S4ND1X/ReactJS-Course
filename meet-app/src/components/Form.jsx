@@ -9,6 +9,8 @@ const Form = () => {
     message: "",
   });
 
+  const { pet, owner, date, time, message } = meeting;
+
   const handleChange = (e) => {
     setMeeting({
       ...meeting,
@@ -16,13 +18,36 @@ const Form = () => {
     });
   };
 
-  const { pet, owner, date, time, message } = meeting;
+  const [error, setError] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validar
+    if (
+      pet.trim() === "" ||
+      owner.trim() === "" ||
+      date.trim() === "" ||
+      time.trim() === "" ||
+      message.trim() === ""
+    ) {
+      setError(true);
+      return;
+    } else {
+      setError(false);
+    }
+    // ID
+
+    // create meeting
+  };
 
   return (
     <Fragment>
       <h2>Meeting</h2>
 
-      <form>
+      {error ? <p className="alerta-error">Please fill al data</p> : null}
+
+      <form onSubmit={handleSubmit}>
         <label>Pet's name</label>
         <input
           type="text"
