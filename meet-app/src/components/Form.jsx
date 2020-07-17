@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 const { v4: uuidv4 } = require("uuid");
 
+//Defining the state of the meeting, in this is all te attributes but empty
 const Form = ({ createMeeting }) => {
   const [meeting, setMeeting] = useState({
     pet: "",
@@ -10,8 +11,10 @@ const Form = ({ createMeeting }) => {
     message: "",
   });
 
+  //Deconstructing the object to assign variables easier
   const { pet, owner, date, time, message } = meeting;
 
+  //In charge of setting the new state of the meeting by copying the current values and setting the nmae of the attribute to the input value
   const handleChange = (e) => {
     setMeeting({
       ...meeting,
@@ -19,12 +22,14 @@ const Form = ({ createMeeting }) => {
     });
   };
 
+  // State that knows if the form was filled correctly
   const [error, setError] = useState(false);
 
+  //Handling the submit button by validating all inputs
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validar
+    // Validate inputs
     if (
       pet.trim() === "" ||
       owner.trim() === "" ||
@@ -39,9 +44,10 @@ const Form = ({ createMeeting }) => {
 
     // ID
     meeting.id = uuidv4();
-    // create meeting
+    // Add the current meeting object to the array of meeting on the main App
     createMeeting(meeting);
 
+    //Reset form and state
     setMeeting({ pet: "", owner: "", date: "", time: "", message: "" });
   };
 
