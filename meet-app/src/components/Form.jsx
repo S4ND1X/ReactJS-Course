@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 const { v4: uuidv4 } = require("uuid");
 
@@ -106,6 +107,10 @@ const Form = ({ createMeeting }) => {
       </form>
     </Fragment>
   );
+};
+
+Form.propTypes = {
+  createMeeting: PropTypes.func.isRequired,
 };
 
 export default Form;
