@@ -19,7 +19,7 @@ export default function NewProjectForm() {
 
     //Add project
 
-    //Reset project
+    //Reset
   };
 
   const { name } = project;

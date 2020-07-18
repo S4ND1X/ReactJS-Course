@@ -4,6 +4,7 @@ import React from "react";
 
 import Sidebar from "../layout/Sidebar";
 import Header from "../layout/header";
+import NewFormTask from "../tasks/new-task-form";
 
 export default function Projects() {
   return (
@@ -12,6 +13,7 @@ export default function Projects() {
       <div className="seccion-principal">
         <Header />
         <main>
+          <NewFormTask />
           <div className="contenedor-tareas"></div>
         </main>
       </div>
