@@ -35,7 +35,6 @@ function App() {
   const title = meetingList.length === 0 ? "Add meeting" : "Your meetings";
 
   return (
-    //Fragment is a component that do not create an extra node in react but when you need to group childs and doesn't need styles it's the way to go
     <Fragment>
       <h1>Administrador</h1>
       <div className="container">
