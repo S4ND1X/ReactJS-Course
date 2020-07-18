@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 
 import Error from "./error";
 
-export default function Question() {
+export default function Question({setGlobalBudget, setBudgetLeft,setShowQuestion}) {
   const [budget, setBudget] = useState(0);
   const [error, setError] = useState(false);
 
@@ -12,7 +12,7 @@ export default function Question() {
   };
 
   const handleSubmit = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     if (budget < 1 || isNaN(budget)) {
       setError(true);
       console.log("====================================");
@@ -25,6 +25,9 @@ export default function Question() {
     console.log("Se envio");
     console.log("====================================");
     setError(false);
+    setGlobalBudget(budget)
+    setBudgetLeft(budget);
+    setShowQuestion(false)
   };
 
   return (
@@ -32,7 +35,9 @@ export default function Question() {
       <h2>What is your weekly budget?</h2>
       {console.log(error)}
       {error ? <Error message="Dato invalido" /> : null}
-      <form>
+      <form
+      onSubmit={handleSubmit}
+      >
         <input
           type="number"
           className="u-full-width"
@@ -44,7 +49,6 @@ export default function Question() {
           type="submit"
           className="button-primary u-full-width"
           placeholder="Add"
-          onSubmit={handleSubmit}
         />
       </form>
     </Fragment>
