@@ -19,13 +19,13 @@ export default function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Validate inputs
+    //TODO Validate inputs
 
-    //Minimun 6 characters
+    //TODO Minimun 6 characters
 
-    // password are equal
+    //TODO password are equal
 
-    //Pass the action
+    //TODO Pass the action
     console.log("oa");
   };
 

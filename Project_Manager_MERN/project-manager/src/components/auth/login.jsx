@@ -17,9 +17,9 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    //Validate inputs
+    //TODO Validate inputs
 
-    //Pass the action
+    //TODO Pass the action
     console.log("oa");
   };
 
