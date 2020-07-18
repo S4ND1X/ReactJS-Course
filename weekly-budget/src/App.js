@@ -1,7 +1,19 @@
 import React from "react";
 
+import Question from "./components/question";
+
 function App() {
-  return <h1>oa</h1>;
+  return (
+    <div className="container">
+      <header>
+        <h1>Weekly Budget</h1>
+
+        <div className="contenido-principal contenido">
+          <Question />
+        </div>
+      </header>
+    </div>
+  );
 }
 
 export default App;
