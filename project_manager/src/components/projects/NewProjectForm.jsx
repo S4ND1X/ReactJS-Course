@@ -5,7 +5,7 @@ import projectContext from "../../context/projects/projectContext";
 function NewProjectForm() {
   //Get global state by getting the context and then getting the atrributes of that state
   const projectsContext = useContext(projectContext);
-  const { create, showForm } = projectsContext;
+  const { create, showForm, addProject } = projectsContext;
 
   //Component state
   const [project, setProject] = useState({
@@ -27,7 +27,16 @@ function NewProjectForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (name === "") return;
+    addProject(project);
+
+    setProject({ name: "" });
+
     // No empty fields
+  };
+
+  const onClick = () => {
+    showForm();
   };
 
   return (
@@ -35,7 +44,7 @@ function NewProjectForm() {
       <button
         type="button"
         className="btn btn-primario btn-block"
-        onClick={() => showForm()}
+        onClick={onClick}
       >
         New Project
       </button>

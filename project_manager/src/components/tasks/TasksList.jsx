@@ -4,12 +4,11 @@ import Task from "./Task";
 
 function TasksList() {
   const tasks = [
-    { name: "tarea 1", completed: true },
-    { name: "tarea 2", completed: true },
-    { name: "tarea 3", completed: true },
-    { name: "tarea 4", completed: true },
+    { name: "tarea 1", id: 1, completed: true },
+    { name: "tarea 2", id: 2, completed: true },
+    { name: "tarea 3", id: 3, completed: true },
+    { name: "tarea 4", id: 4, completed: true },
   ];
-
   return (
     //If the project has tasks, display them else display a message
     <Fragment>
@@ -20,7 +19,7 @@ function TasksList() {
           <li className="tarea">Empty</li>
         ) : (
           tasks.map((task) => (
-            <Task name={task.name} completed={task.completed} />
+            <Task name={task.name} completed={task.completed} key={task.id} />
           ))
         )}
       </ul>
